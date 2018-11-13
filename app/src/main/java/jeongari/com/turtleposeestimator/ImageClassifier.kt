@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.edvard.poseestimatio
+package jeongari.com.turtleposeestimator
 
 import android.app.Activity
 import android.graphics.Bitmap

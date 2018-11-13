@@ -1,12 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-8:12
+ADDED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-7:12
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-7:12
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-7:12
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-7:12
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-7:12
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-7:12
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:2:1-7:12
 	package
 		ADDED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:3:7-27
 		INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
@@ -22,16 +22,16 @@ INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary34
 		INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
 		INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
 uses-sdk
-ADDED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:7:5-47
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:7:5-47
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:7:5-47
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:7:5-47
-INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:7:5-47
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
+INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		ADDED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:7:15-44
 		INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
+		ADDED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
 		INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
-		ADDED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml:7:5-47
+		ADDED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml
 		INJECTED from /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/AndroidManifest.xml

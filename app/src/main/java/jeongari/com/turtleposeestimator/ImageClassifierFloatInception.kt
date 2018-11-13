@@ -17,7 +17,7 @@ package jeongari.com.turtleposeestimator
 
 import android.app.Activity
 import android.util.Log
-import com.edvard.poseestimatio.ImageClassifier
+import jeongari.com.turtleposeestimator.ImageClassifier
 
 import org.opencv.core.CvType
 import org.opencv.core.Mat

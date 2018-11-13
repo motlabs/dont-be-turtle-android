@@ -22,7 +22,8 @@
         </activity>
         <activity
             android:name=".CameraActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="true"/>
     </application>
 
 </manifest>

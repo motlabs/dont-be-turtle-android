@@ -18,6 +18,9 @@ android {
                 cppFlags ""
             }
         }
+        ndk{
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
     }
     buildTypes {
         release {
@@ -29,6 +32,9 @@ android {
         cmake {
             path "CMakeLists.txt"
         }
+    }
+    aaptOptions {
+        noCompress "tflite"
     }
 }
 

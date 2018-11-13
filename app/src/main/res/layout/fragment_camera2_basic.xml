@@ -18,28 +18,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <com.edvard.poseestimation.AutoFitFrameLayout
+    <jeongari.com.turtleposeestimator.AutoFitFrameLayout
         android:id="@+id/layout_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         >
 
-        <com.edvard.poseestimation.AutoFitTextureView
+        <jeongari.com.turtleposeestimator.AutoFitTextureView
             android:id="@+id/texture"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             />
 
-        <com.edvard.poseestimation.DrawView
+        <jeongari.com.turtleposeestimator.DrawView
             android:id="@+id/drawview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             />
 
-    </com.edvard.poseestimation.AutoFitFrameLayout>
+    </jeongari.com.turtleposeestimator.AutoFitFrameLayout>
 
     <LinearLayout
         android:id="@+id/layout_bottom"
