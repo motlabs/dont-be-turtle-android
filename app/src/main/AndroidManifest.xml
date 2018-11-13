@@ -21,9 +21,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:hardwareAccelerated="true"
             android:name=".CameraActivity"
-            android:screenOrientation="portrait"
-            android:hardwareAccelerated="true"/>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

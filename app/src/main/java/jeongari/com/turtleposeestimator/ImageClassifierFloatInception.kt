@@ -17,7 +17,6 @@ package jeongari.com.turtleposeestimator
 
 import android.app.Activity
 import android.util.Log
-import jeongari.com.turtleposeestimator.ImageClassifier
 
 import org.opencv.core.CvType
 import org.opencv.core.Mat
@@ -36,7 +35,7 @@ class ImageClassifierFloatInception private constructor(
     private val outputW: Int,
     private val outputH: Int,
     modelPath: String,
-    numBytesPerChannel: Int = 4 // a 32bit float value requires 4 bytes
+    numBytesPerChannel: Int = 4// a 32bit float value requires 4 bytes
   ) : ImageClassifier(activity, imageSizeX, imageSizeY, modelPath, numBytesPerChannel) {
 
   /**
@@ -44,7 +43,13 @@ class ImageClassifierFloatInception private constructor(
    * This isn't part of the super class, because we need a primitive array here.
    */
   private val heatMapArray: Array<Array<Array<FloatArray>>> =
-    Array(1) { Array(outputW) { Array(outputH) { FloatArray(14) } } }
+    Array(1) {
+      Array(outputW) {
+        Array(outputH) {
+          FloatArray(4)
+        }
+      }
+    }
 
   private var mMat: Mat? = null
 
@@ -53,6 +58,8 @@ class ImageClassifierFloatInception private constructor(
     imgData!!.putFloat((pixelValue and 0xFF).toFloat())
     imgData!!.putFloat((pixelValue shr 8 and 0xFF).toFloat())
     imgData!!.putFloat((pixelValue shr 16 and 0xFF).toFloat())
+
+
   }
 
   override fun getProbability(labelIndex: Int): Float {
@@ -75,7 +82,7 @@ class ImageClassifierFloatInception private constructor(
     tflite?.run(imgData!!, heatMapArray)
 
     if (mPrintPointArray == null)
-      mPrintPointArray = Array(2) { FloatArray(14) }
+      mPrintPointArray = Array(2) { FloatArray(4) }
 
     if (!CameraActivity.isOpenCVInit)
       return
@@ -86,7 +93,7 @@ class ImageClassifierFloatInception private constructor(
 
     val tempArray = FloatArray(outputW * outputH)
     val outTempArray = FloatArray(outputW * outputH)
-    for (i in 0..13) {
+    for (i in 0..3) {
       var index = 0
       for (x in 0 until outputW) {
         for (y in 0 until outputH) {
@@ -129,7 +136,7 @@ class ImageClassifierFloatInception private constructor(
       }
 
       if (max == 0f) {
-        mPrintPointArray = Array(2) { FloatArray(14) }
+        mPrintPointArray = Array(2) { FloatArray(4) }
         return
       }
 
@@ -168,11 +175,11 @@ class ImageClassifierFloatInception private constructor(
      */
     fun create(
       activity: Activity,
-      imageSizeX: Int = 224,
-      imageSizeY: Int = 224,
-      outputW: Int = 112,
-      outputH: Int = 112,
-      modelPath: String = "mv2-cpm-224.tflite",
+      imageSizeX: Int = 256,
+      imageSizeY: Int = 256,
+      outputW: Int = 64,
+      outputH: Int = 64,
+      modelPath: String = "turtle-model.tflite",
       numBytesPerChannel: Int = 4
     ): ImageClassifierFloatInception =
       ImageClassifierFloatInception(

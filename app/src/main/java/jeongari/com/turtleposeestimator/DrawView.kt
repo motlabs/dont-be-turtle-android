@@ -41,26 +41,8 @@ class DrawView : View {
   private var mImgWidth: Int = 0
   private var mImgHeight: Int = 0
 
-  private val mColorArray = intArrayOf(
-      resources.getColor(R.color.color_top, null),
-      resources.getColor(R.color.color_neck, null),
-      resources.getColor(R.color.color_l_shoulder, null),
-      resources.getColor(R.color.color_l_elbow, null),
-      resources.getColor(R.color.color_l_wrist, null),
-      resources.getColor(R.color.color_r_shoulder, null),
-      resources.getColor(R.color.color_r_elbow, null),
-      resources.getColor(R.color.color_r_wrist, null),
-      resources.getColor(R.color.color_l_hip, null),
-      resources.getColor(R.color.color_l_knee, null),
-      resources.getColor(R.color.color_l_ankle, null),
-      resources.getColor(R.color.color_r_hip, null),
-      resources.getColor(R.color.color_r_knee, null),
-      resources.getColor(R.color.color_r_ankle, null),
-      resources.getColor(R.color.color_background, null)
-  )
-
   private val circleRadius: Float by lazy {
-    dip(3).toFloat()
+    dip(10).toFloat()
   }
 
   private val mPaint: Paint by lazy {
@@ -105,7 +87,7 @@ class DrawView : View {
 
     var tempX: Float
     var tempY: Float
-    for (i in 0..13) {
+    for (i in 0..3) {
       tempX = point[0][i] / ratio / mRatioX
       tempY = point[1][i] / ratio / mRatioY
       mDrawPoint.add(PointF(tempX, tempY))
@@ -137,30 +119,9 @@ class DrawView : View {
     if (mDrawPoint.isEmpty()) return
     var prePointF: PointF? = null
     mPaint.color = 0xff6fa8dc.toInt()
-    val p1 = mDrawPoint[1]
-    for ((index, pointF) in mDrawPoint.withIndex()) {
-      if (index == 1) continue
-      when (index) {
-      //0-1
-        0 -> {
-          canvas.drawLine(pointF.x, pointF.y, p1.x, p1.y, mPaint)
-        }
-      // 1-2, 1-5, 1-8, 1-11
-        2, 5, 8, 11 -> {
-          canvas.drawLine(p1.x, p1.y, pointF.x, pointF.y, mPaint)
-        }
-        else -> {
-          if (prePointF != null) {
-            mPaint.color = 0xff6fa8dc.toInt()
-            canvas.drawLine(prePointF.x, prePointF.y, pointF.x, pointF.y, mPaint)
-          }
-        }
-      }
-      prePointF = pointF
-    }
 
     for ((index, pointF) in mDrawPoint.withIndex()) {
-      mPaint.color = mColorArray[index]
+      mPaint.color = 0xff6fa8dc.toInt()
       canvas.drawCircle(pointF.x, pointF.y, circleRadius, mPaint)
     }
   }

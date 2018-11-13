@@ -73,7 +73,6 @@ class Camera2BasicFragment : Fragment(), FragmentCompat.OnRequestPermissionsResu
   private var layoutFrame: AutoFitFrameLayout? = null
   private var drawView: DrawView? = null
   private var classifier: ImageClassifier? = null
-  private var layoutBottom: ViewGroup? = null
 
   /**
    * [TextureView.SurfaceTextureListener] handles several lifecycle events on a [ ].
@@ -271,7 +270,6 @@ class Camera2BasicFragment : Fragment(), FragmentCompat.OnRequestPermissionsResu
     textView = view.findViewById(R.id.text)
     layoutFrame = view.findViewById(R.id.layout_frame)
     drawView = view.findViewById(R.id.drawview)
-    layoutBottom = view.findViewById(R.id.layout_bottom)
 //    if (classifier != null)
 //      drawView!!.setImgSize(classifier!!.imageSizeX, classifier!!.imageSizeY)
   }
@@ -338,7 +336,7 @@ class Camera2BasicFragment : Fragment(), FragmentCompat.OnRequestPermissionsResu
 
         // We don't use a front facing camera in this sample.
         val facing = characteristics.get(CameraCharacteristics.LENS_FACING)
-        if (facing != null && facing == CameraCharacteristics.LENS_FACING_FRONT) {
+        if (facing != null && facing == CameraCharacteristics.LENS_FACING_BACK) {
           continue
         }
 
@@ -643,7 +641,8 @@ class Camera2BasicFragment : Fragment(), FragmentCompat.OnRequestPermissionsResu
     bitmap.recycle()
 
     //        drawView.setDrawPoint(classifier.mPrintPointArray, 0.25f);
-    drawView!!.setDrawPoint(classifier!!.mPrintPointArray!!, 0.5f)
+    drawView!!.setDrawPoint(classifier!!.mPrintPointArray!!, 0.25f)
+
 
     showToast(textToShow)
   }
