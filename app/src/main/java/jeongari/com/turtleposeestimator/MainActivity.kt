@@ -1,5 +1,6 @@
 package jeongari.com.turtleposeestimator
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -10,8 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Example of a call to a native method
-        sample_text.text = stringFromJNI()
+        btn_start.setOnClickListener {
+            var intent: Intent = Intent(this, CameraActivity::class.java);
+            startActivity(intent)
+        }
+
     }
 
     /**

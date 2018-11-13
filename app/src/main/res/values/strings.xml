@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">TurtlePoseEstimator</string>
+
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="toggle_turn_on">NN:On</string>
+    <string name="toggle_turn_off">NN:Off</string>
+    <string name="toggle">Use NNAPI</string>
+
+    <string name="neck">Neck</string>
+    <string name="r_shoulder">RShoulder</string>
+    <string name="r_elbow">RElbow</string>
+    <string name="l_shoulder">LShoulder</string>
+    <string name="l_elbow">LElbow</string>
+    <string name="l_wrist">LWrist</string>
+    <string name="r_wrist">RWrist</string>
+    <string name="r_hip">RHip</string>
+    <string name="r_knee">RKnee</string>
+    <string name="r_ankle">RAnkle</string>
+    <string name="l_hip">LHip</string>
+    <string name="l_knee">LKnee</string>
+    <string name="l_ankle">LAnkle</string>
+    <string name="background">Background</string>
 </resources>
