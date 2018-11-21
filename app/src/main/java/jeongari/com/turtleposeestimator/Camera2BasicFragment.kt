@@ -23,11 +23,7 @@ import android.app.Fragment
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.graphics.ImageFormat
-import android.graphics.Matrix
-import android.graphics.Point
-import android.graphics.RectF
-import android.graphics.SurfaceTexture
+import android.graphics.*
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraCaptureSession
 import android.hardware.camera2.CameraCharacteristics
@@ -637,12 +633,11 @@ class Camera2BasicFragment : Fragment(), FragmentCompat.OnRequestPermissionsResu
       return
     }
     val bitmap = textureView!!.getBitmap(classifier!!.imageSizeX, classifier!!.imageSizeY)
-    val textToShow = classifier!!.classifyFrame(bitmap)
-    bitmap.recycle()
+    val resizedBitmap = Bitmap.createScaledBitmap(bitmap,256,256,false)
+    val textToShow = classifier!!.classifyFrame(resizedBitmap)
 
-    //        drawView.setDrawPoint(classifier.mPrintPointArray, 0.25f);
-    drawView!!.setDrawPoint(classifier!!.mPrintPointArray!!, 0.25f)
-
+    drawView?.setDrawPoint(classifier?.mPrintPointArray!!, 0.25f);
+    resizedBitmap.recycle()
 
     showToast(textToShow)
   }

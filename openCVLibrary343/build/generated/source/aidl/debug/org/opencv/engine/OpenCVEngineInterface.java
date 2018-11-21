@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /Users/jeongahri/Codes/Crucial/TurtlePoseEstimator/openCVLibrary343/src/main/aidl/org/opencv/engine/OpenCVEngineInterface.aidl
+ * Original file: /Users/jeongahri/Codes/Crucial/dont-be-turtle-android/openCVLibrary343/src/main/aidl/org/opencv/engine/OpenCVEngineInterface.aidl
  */
 package org.opencv.engine;
 /**

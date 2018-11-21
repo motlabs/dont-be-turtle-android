@@ -71,15 +71,15 @@ internal constructor(
 
   init {
     tflite = Interpreter(loadModelFile(activity))
+    Log.d(TAG, "Created a Tensorflow Lite Image Classifier.")
     imgData = ByteBuffer.allocateDirect(
-        DIM_BATCH_SIZE
-            * imageSizeX
-            * imageSizeY
-            * DIM_PIXEL_SIZE
-            * numBytesPerChannel
+            DIM_BATCH_SIZE
+                    * imageSizeX
+                    * imageSizeY
+                    * DIM_PIXEL_SIZE
+                    * numBytesPerChannel
     )
     imgData!!.order(ByteOrder.nativeOrder())
-    Log.d(TAG, "Created a Tensorflow Lite Image Classifier.")
   }
 
   /** Classifies a frame from the preview stream.  */
@@ -89,12 +89,12 @@ internal constructor(
       return "Uninitialized Classifier."
     }
     convertBitmapToByteBuffer(bitmap)
+    Thread.sleep(12)
     // Here's where the magic happens!!!
     val startTime = SystemClock.uptimeMillis()
     runInference()
     val endTime = SystemClock.uptimeMillis()
     Log.d(TAG, "Timecost to run model inference: " + Long.toString(endTime - startTime))
-
 
     // Print the results.
     //    String textToShow = printTopKLabels();
@@ -123,8 +123,9 @@ internal constructor(
   private fun convertBitmapToByteBuffer(bitmap: Bitmap) {
     if (imgData == null) {
       return
+    }else{
+      imgData?.rewind()
     }
-    imgData!!.rewind()
     bitmap.getPixels(intValues, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
     // Convert the image to floating point.
     var pixel = 0
