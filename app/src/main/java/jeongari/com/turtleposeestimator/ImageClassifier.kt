@@ -17,6 +17,7 @@ package jeongari.com.turtleposeestimator
 
 import android.app.Activity
 import android.graphics.Bitmap
+import android.os.Handler
 import android.os.SystemClock
 import android.util.Log
 import org.tensorflow.lite.Interpreter
@@ -59,15 +60,7 @@ internal constructor(
   /** A ByteBuffer to hold image data, to be feed into Tensorflow Lite as inputs.  */
   protected var imgData: ByteBuffer? = null
 
-  /** multi-stage low pass filter *  */
-  private var filterLabelProbArray: Array<FloatArray>? = null
-
   var mPrintPointArray: Array<FloatArray>? = null
-
-  private val sozrtedLabels = PriorityQueue<Map.Entry<String, Float>>(
-      RESULTS_TO_SHOW,
-      Comparator<Map.Entry<String, Float>> { o1, o2 -> o1.value.compareTo(o2.value) })
-
 
   init {
     tflite = Interpreter(loadModelFile(activity))
@@ -79,7 +72,7 @@ internal constructor(
                     * DIM_PIXEL_SIZE
                     * numBytesPerChannel
     )
-    imgData!!.order(ByteOrder.nativeOrder())
+    imgData?.order(ByteOrder.nativeOrder())
   }
 
   /** Classifies a frame from the preview stream.  */
@@ -88,16 +81,15 @@ internal constructor(
       Log.e(TAG, "Image classifier has not been initialized; Skipped.")
       return "Uninitialized Classifier."
     }
-    convertBitmapToByteBuffer(bitmap)
-    Thread.sleep(12)
-    // Here's where the magic happens!!!
+    //TODO : Buffer에 실어보내고, 추론하는 과정 동기화 하기
+    convertBitmapToByteBuffer(bitmap) // min 12 ms ~ max 29 ms
+
     val startTime = SystemClock.uptimeMillis()
+    Log.e("추론 시작 시간", startTime.toString())
     runInference()
     val endTime = SystemClock.uptimeMillis()
     Log.d(TAG, "Timecost to run model inference: " + Long.toString(endTime - startTime))
 
-    // Print the results.
-    //    String textToShow = printTopKLabels();
     return Long.toString(endTime - startTime) + "ms"
   }
 
@@ -123,13 +115,13 @@ internal constructor(
   private fun convertBitmapToByteBuffer(bitmap: Bitmap) {
     if (imgData == null) {
       return
-    }else{
-      imgData?.rewind()
     }
+    imgData?.rewind()
     bitmap.getPixels(intValues, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
     // Convert the image to floating point.
     var pixel = 0
     val startTime = SystemClock.uptimeMillis()
+    Log.e("버퍼 넘실넘실 시작 시간", startTime.toString())
     for (i in 0 until imageSizeX) {
       for (j in 0 until imageSizeY) {
         val v = intValues[pixel++]

@@ -634,9 +634,10 @@ class Camera2BasicFragment : Fragment(), FragmentCompat.OnRequestPermissionsResu
     }
     val bitmap = textureView!!.getBitmap(classifier!!.imageSizeX, classifier!!.imageSizeY)
     val resizedBitmap = Bitmap.createScaledBitmap(bitmap,256,256,false)
+
     val textToShow = classifier!!.classifyFrame(resizedBitmap)
 
-    drawView?.setDrawPoint(classifier?.mPrintPointArray!!, 0.25f);
+    //drawView?.setDrawPoint(classifier?.mPrintPointArray!!, 0.25f)
     resizedBitmap.recycle()
 
     showToast(textToShow)

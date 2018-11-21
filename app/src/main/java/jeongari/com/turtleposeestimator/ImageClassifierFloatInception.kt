@@ -123,9 +123,8 @@ class ImageClassifierFloatInception private constructor(
                             center > left &&
                             center > right &&
                             center > bottom &&
-                            center >= 0.01
+                            center >= 0.3
                     ) {
-
                         if (center > max) {
                             max = center
                             maxX = x.toFloat()
@@ -134,6 +133,7 @@ class ImageClassifierFloatInception private constructor(
                     }
                 }
             }
+
 
             if (max == 0f) {
                 mPrintPointArray = Array(2) { FloatArray(4) }
