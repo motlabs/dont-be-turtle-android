@@ -48,6 +48,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import jeongari.com.turtleposeestimator.ImageClassifier
+import kotlinx.android.synthetic.main.fragment_camera2_basic.*
+import kotlinx.android.synthetic.main.fragment_camera2_basic.view.*
 import java.io.IOException
 import java.util.ArrayList
 import java.util.Arrays
@@ -637,10 +639,13 @@ class Camera2BasicFragment : Fragment(), FragmentCompat.OnRequestPermissionsResu
 
     val textToShow = classifier!!.classifyFrame(resizedBitmap)
 
-    //drawView?.setDrawPoint(classifier?.mPrintPointArray!!, 0.25f)
+    Log.d("mPrintPointArray[0] : ", Arrays.toString(classifier?.mPrintPointArray!![0]))
+    Log.d("mPrintPointArray[1] : ", Arrays.toString(classifier?.mPrintPointArray!![1]))
+    drawView?.setDrawPoint(classifier?.mPrintPointArray!!, 0.25f)
     resizedBitmap.recycle()
-
-    showToast(textToShow)
+    showToast(textToShow + "\n"
+            + Arrays.toString(classifier?.mPrintPointArray!![0])
+            + "\n" + Arrays.toString(classifier?.mPrintPointArray!![1]))
   }
 
   /**
