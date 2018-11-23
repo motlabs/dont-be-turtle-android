@@ -81,13 +81,14 @@ internal constructor(
       Log.e(TAG, "Image classifier has not been initialized; Skipped.")
       return "Uninitialized Classifier."
     }
-    //TODO : Buffer에 실어보내고, 추론하는 과정 동기화 하기
+
     convertBitmapToByteBuffer(bitmap) // min 12 ms ~ max 29 ms
 
     val startTime = SystemClock.uptimeMillis()
     Log.e("추론 시작 시간", startTime.toString())
     runInference()
     val endTime = SystemClock.uptimeMillis()
+    Log.e("추론 끝나는 시간", endTime.toString())
     Log.d(TAG, "Timecost to run model inference: " + Long.toString(endTime - startTime))
 
     return Long.toString(endTime - startTime) + "ms"

@@ -79,6 +79,7 @@ class ImageClassifierFloatInception private constructor(
     }
 
     override fun runInference() {
+        Log.d("imgData.capacity : ", imgData!!.capacity().toString())
         tflite?.run(imgData!!, heatMapArray)
 
         if (mPrintPointArray == null)
@@ -106,6 +107,8 @@ class ImageClassifierFloatInception private constructor(
             Imgproc.GaussianBlur(mMat!!, mMat!!, Size(5.0, 5.0), 0.0, 0.0)
             mMat!!.get(0, 0, outTempArray)
 
+            Log.e("최댓값", outTempArray.max().toString())
+
             var maxX = 0f
             var maxY = 0f
             var max = 0f
@@ -113,24 +116,15 @@ class ImageClassifierFloatInception private constructor(
             // Find keypoint coordinate through maximum values
             for (x in 0 until outputW) {
                 for (y in 0 until outputH) {
-                    val top = get(x, y - 1, outTempArray)
-                    val left = get(x - 1, y, outTempArray)
-                    val right = get(x + 1, y, outTempArray)
-                    val bottom = get(x, y + 1, outTempArray)
                     val center = get(x, y, outTempArray)
 
-                    if (center > top &&
-                            center > left &&
-                            center > right &&
-                            center > bottom &&
-                            center >= 0.3
-                    ) {
-                        if (center > max) {
-                            max = center
-                            maxX = x.toFloat()
-                            maxY = y.toFloat()
-                        }
+
+                    if (center > max) {
+                        max = center
+                        maxX = x.toFloat()
+                        maxY = y.toFloat()
                     }
+
                 }
             }
 

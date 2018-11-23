@@ -49,6 +49,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:background="#1c000000"
-        tools:text="asd"/>
+        tools:text="fps"/>
+
 
 </FrameLayout>
